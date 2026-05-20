@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techofy Release Notes</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+        
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--text-main);
+            text-align: center;
+        }
+
+        /* The ID here matches the #Patchv2.4.1 in your URL */
+        .release-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 40px;
+            scroll-margin-top: 20px; /* Gives breathing room when jumping to the URL hash */
+        }
+
+        .release-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .version {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .date {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.critical { background: #fee2e2; color: var(--danger); }
+        .badge.update { background: #d1fae5; color: var(--success); }
+
+        .category-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .log-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .log-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        .log-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .highlight {
+            font-family: monospace;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--danger);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="header-title">Techofy Changelog</h1>
+
+        <!-- The ID matches the URL hash: techofy.xyz/notes-release#Patchv2.4.1 -->
+        <div id="Patchv2.4.1" class="release-card">
+            
+            <div class="release-header">
+                <h2 class="version">Patch v2.4.1</h2>
+                <span class="date">May 21, 2026</span>
+            </div>
+
+            <span class="badge update">System Update</span>
+            <span class="badge critical">Critical Security</span>
+
+            <p style="color: var(--text-muted); font-size: 1.05rem;">
+                This patch focuses on strengthening our core database infrastructure, resolving critical vulnerabilities, and heavily optimizing memory usage across the platform.
+            </p>
+
+            <div class="category-title">
+                🛡️ SECURITY PATCHES
+            </div>
+            <ul class="log-list">
+                <li>Applied emergency patch to mitigate <span class="highlight">CVE-2026-1045</span> vulnerability in the main database cluster.</li>
+                <li>Upgraded database encryption standards from AES-128 to AES-256 for all active sessions.</li>
+                <li>Implemented strict rate-limiting on authentication endpoints to prevent brute-force login attempts.</li>
+                <li>Patched a privilege escalation bug in the user role management module.</li>
+            </ul>
+
+            <div class="category-title">
+                ⚡ PERFORMANCE & OPTIMIZATION
+            </div>
+            <ul class="log-list">
+                <li>Resolved a major memory leak in the background worker processes that caused server slowdowns during peak hours.</li>
+                <li>Optimized database indexing, reducing query response times by 35% on the dashboard.</li>
+                <li>Reduced overall memory footprint of the core application by ~1.2GB per instance.</li>
+                <li>Implemented lazy-loading for heavy media assets on the client side.</li>
+            </ul>
+
+            <div class="category-title">
+                🐛 BUG FIXES
+            </div>
+            <ul class="log-list">
+                <li>Fixed an issue where session tokens were improperly expiring early for mobile users.</li>
+                <li>Resolved UI clipping bugs that occurred on ultra-wide monitors.</li>
+                <li>Fixed the "Sync Failed" error prompt showing incorrectly when offline mode was toggled.</li>
+            </ul>
+        </div>
+
+        <!-- You can add older patches below like this: -->
+        <!-- 
+        <div id="Patchv2.4.0" class="release-card">
+            ...
+        </div>
+        -->
+
+    </div>
+
+</body>
+</html>
+
