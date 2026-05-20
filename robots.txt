@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /tracking
+
+Sitemap: https://techofy.xyz/sitemap.xml
+
